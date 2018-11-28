@@ -16,4 +16,5 @@ extension NotesTableVC {
         backgroundImageView.contentMode = .scaleAspectFill
         tableView.backgroundView = backgroundImageView
     }
+
 }
