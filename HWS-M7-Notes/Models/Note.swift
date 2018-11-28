@@ -9,6 +9,11 @@
 import UIKit
 
 class Note: Codable {
-    var dateLastModified: Date!
-    var text: String!
+    var dateLastModified: Date
+    var text: String
+    
+    init(text: String) {
+        self.text = text
+        dateLastModified = Date.init()
+    }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class NotesTableVC: UITableViewController {
 
+    var notes = [Note]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,25 +24,25 @@ class NotesTableVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return notes.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
+        cell.textLabel?.text = notes[indexPath.row].text
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
+        
+        let noteDate = notes[indexPath.row].dateLastModified
+        let formattedDate = dateFormatter.string(from: noteDate)
+        cell.detailTextLabel?.text = formattedDate
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
