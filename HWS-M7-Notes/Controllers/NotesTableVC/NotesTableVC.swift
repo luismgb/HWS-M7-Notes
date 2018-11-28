@@ -28,7 +28,7 @@ class NotesTableVC: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTableView))
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table View Methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notes.count
@@ -51,32 +51,25 @@ class NotesTableVC: UITableViewController {
         cell.backgroundColor = UIColor.clear
     }
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
+    
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let noteBeingMoved = notes.remove(at: fromIndexPath.row)
+        notes.insert(noteBeingMoved, at: to.row)
     }
-    */
 
-    /*
-    // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
+    
+    @objc func editTableView() {
+        tableView.isEditing.toggle()
+    }
 
     /*
     // MARK: - Navigation
@@ -87,9 +80,5 @@ class NotesTableVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-    @objc func editTableView() {
-        #warning("Add Functionality")
-    }
     
 }
