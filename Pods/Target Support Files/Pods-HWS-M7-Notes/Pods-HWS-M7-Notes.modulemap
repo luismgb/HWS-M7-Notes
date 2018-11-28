@@ -1,0 +1,6 @@
+framework module Pods_HWS_M7_Notes {
+  umbrella header "Pods-HWS-M7-Notes-umbrella.h"
+
+  export *
+  module * { export * }
+}
