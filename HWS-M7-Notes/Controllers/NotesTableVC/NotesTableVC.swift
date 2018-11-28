@@ -16,18 +16,13 @@ class NotesTableVC: UITableViewController {
         super.viewDidLoad()
 
         title = "Notes"
-        navigationController?.navigationBar.prefersLargeTitles = true
         
         // Removes empty extra cells at bottom of the tableView
         tableView.tableFooterView = UIView()
         
         setupBackground()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        setupNavBar()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTableView))
     }
 
     // MARK: - Table view data source
@@ -52,14 +47,6 @@ class NotesTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
     /*
     // Override to support editing the table view.
@@ -98,4 +85,8 @@ class NotesTableVC: UITableViewController {
     }
     */
 
+    @objc func editTableView() {
+        #warning("Add Functionality")
+    }
+    
 }
