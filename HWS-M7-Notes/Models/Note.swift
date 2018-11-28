@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  Note.swift
 //  HWS-M7-Notes
 //
 //  Created by Luis M Gonzalez on 11/27/18.
@@ -8,10 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
+class Note: Codable {
+    var dateLastModified: Date!
+    var text: String!
 }
