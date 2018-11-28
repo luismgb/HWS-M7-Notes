@@ -15,6 +15,14 @@ class NotesTableVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Notes"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        // Removes empty extra cells at bottom of the tableView
+        tableView.tableFooterView = UIView()
+        
+        setupBackground()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -42,6 +50,10 @@ class NotesTableVC: UITableViewController {
         cell.detailTextLabel?.text = formattedDate
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
 
     /*
