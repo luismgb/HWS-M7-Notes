@@ -14,6 +14,7 @@
 		21DA5CB521AE4140009C7B73 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CB421AE4140009C7B73 /* Note.swift */; };
 		21DA5CBA21AE41A6009C7B73 /* NotesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CB921AE41A6009C7B73 /* NotesTableVC.swift */; };
 		21DA5CC221AE5131009C7B73 /* NotesTableVC+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CC121AE5131009C7B73 /* NotesTableVC+Background.swift */; };
+		21DA5CC921AE5552009C7B73 /* NotesTableVC+customDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CC821AE5552009C7B73 /* NotesTableVC+customDateFormatter.swift */; };
 		28AC5419B7468CF2C50E6283 /* Pods_HWS_M7_Notes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E351934178422C45D7C8109A /* Pods_HWS_M7_Notes.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		21DA5CB421AE4140009C7B73 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		21DA5CB921AE41A6009C7B73 /* NotesTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableVC.swift; sourceTree = "<group>"; };
 		21DA5CC121AE5131009C7B73 /* NotesTableVC+Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotesTableVC+Background.swift"; sourceTree = "<group>"; };
+		21DA5CC821AE5552009C7B73 /* NotesTableVC+customDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotesTableVC+customDateFormatter.swift"; sourceTree = "<group>"; };
 		7C89CBC0A9BAB8837DD9F00C /* Pods-HWS-M7-Notes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HWS-M7-Notes.release.xcconfig"; path = "Pods/Target Support Files/Pods-HWS-M7-Notes/Pods-HWS-M7-Notes.release.xcconfig"; sourceTree = "<group>"; };
 		E351934178422C45D7C8109A /* Pods_HWS_M7_Notes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HWS_M7_Notes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -113,6 +115,7 @@
 			children = (
 				21DA5CB921AE41A6009C7B73 /* NotesTableVC.swift */,
 				21DA5CC121AE5131009C7B73 /* NotesTableVC+Background.swift */,
+				21DA5CC821AE5552009C7B73 /* NotesTableVC+customDateFormatter.swift */,
 			);
 			path = NotesTableVC;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				21DA5CC221AE5131009C7B73 /* NotesTableVC+Background.swift in Sources */,
 				21DA5CBA21AE41A6009C7B73 /* NotesTableVC.swift in Sources */,
 				21DA5CB521AE4140009C7B73 /* Note.swift in Sources */,
+				21DA5CC921AE5552009C7B73 /* NotesTableVC+customDateFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,5 @@ extension NotesTableVC {
         let backgroundImageView = UIImageView(image: backgroundImage)
         backgroundImageView.contentMode = .scaleAspectFill
         tableView.backgroundView = backgroundImageView
-//        tableView.layer.backgroundColor = UIColor.clear.cgColor
     }
 }

@@ -40,10 +40,7 @@ class NotesTableVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
         cell.textLabel?.text = notes[indexPath.row].text
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale = Locale(identifier: "en_US")
+        let dateFormatter = customDateFormatter()
         
         let noteDate = notes[indexPath.row].dateLastModified
         let formattedDate = dateFormatter.string(from: noteDate)
@@ -53,7 +50,7 @@ class NotesTableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.clear
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
     }
 
     /*
