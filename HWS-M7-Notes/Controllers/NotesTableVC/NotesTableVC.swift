@@ -10,7 +10,11 @@ import UIKit
 
 class NotesTableVC: UITableViewController {
 
+    // MARK: - Properties
+    
     var notes = [Note]()
+    
+    // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +25,6 @@ class NotesTableVC: UITableViewController {
         tableView.tableFooterView = UIView()
         
         setupBackground()
-        setupNavBar()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTableView))
     }
 
