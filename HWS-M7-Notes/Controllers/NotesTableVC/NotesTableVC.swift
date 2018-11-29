@@ -38,6 +38,10 @@ class NotesTableVC: UITableViewController {
         navigationController?.setToolbarHidden(false, animated: false)
         navigationController?.toolbar.tintColor = Utilites.myBarTintColor
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        populateNotesArrayWithSavedNotes()
+    }
 
     // MARK: - Table View Methods
 

@@ -18,6 +18,8 @@ class DetailVC: UIViewController {
     
     weak var delegate: DetailVCDelegate!
     
+    var notes = [Note]()
+    
     var text: String!
     
     var selectedNoteIndex: Int!
@@ -46,12 +48,18 @@ class DetailVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.setToolbarHidden(true, animated: true)
+        
+        populateNotesArrayWithSavedNotes()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.setToolbarHidden(false, animated: true)
+        
+        saveNotes()
+        
         super.viewWillDisappear(animated)
     }
     
