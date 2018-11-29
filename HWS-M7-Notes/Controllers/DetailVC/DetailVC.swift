@@ -20,4 +20,13 @@ class DetailVC: UIViewController {
         textView.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        super.viewWillDisappear(animated)
+    }
 }
