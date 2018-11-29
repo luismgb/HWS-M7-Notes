@@ -18,6 +18,7 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
         textView.text = text
         textView.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
+        textView.adjustsFontForContentSizeCategory = true
     }
 
     override func viewWillAppear(_ animated: Bool) {

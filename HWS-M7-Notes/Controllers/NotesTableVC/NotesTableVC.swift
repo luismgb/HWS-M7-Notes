@@ -24,6 +24,9 @@ class NotesTableVC: UITableViewController {
         // Removes empty extra cells at bottom of the tableView
         tableView.tableFooterView = UIView()
         
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 44.0
+        
         setupBackground()
         
         // Setup NaigationController
