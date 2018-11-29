@@ -9,9 +9,14 @@
 import UIKit
 
 class DetailVC: UIViewController {
+    
+    var text: String!
 
+    @IBOutlet var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        textView.text = text
     }
 
 }

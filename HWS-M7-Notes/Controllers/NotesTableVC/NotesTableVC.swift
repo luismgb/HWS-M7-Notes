@@ -75,19 +75,22 @@ class NotesTableVC: UITableViewController {
         return true
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "goToDetailVC", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     @objc func editTableView() {
         tableView.isEditing.toggle()
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let indexPath = tableView.indexPathForSelectedRow else { fatalError() }
+        guard let detailVC = segue.destination as? DetailVC else { fatalError() }
+        detailVC.text = notes[indexPath.row].text
     }
-    */
     
     @objc func composeNewNote() {
         #warning("Add Functionality")

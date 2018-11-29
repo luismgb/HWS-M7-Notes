@@ -14,6 +14,6 @@ class Note: Codable {
     
     init(text: String) {
         self.text = text
-        dateLastModified = Date.init()
+        dateLastModified = Date()
     }
 }
