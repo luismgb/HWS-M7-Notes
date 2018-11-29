@@ -94,6 +94,7 @@ class NotesTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let noteBeingMoved = notes.remove(at: fromIndexPath.row)
         notes.insert(noteBeingMoved, at: to.row)
+        Utilities.save(notes)
     }
 
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
