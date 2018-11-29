@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Note: Codable {
+struct Note: Codable {
     var dateLastModified: Date
     var text: String
     
