@@ -8,11 +8,19 @@
 
 import UIKit
 
+protocol DetailVCDelegate: class {
+    func userChangedTextInNoteTo(text: String, noteIndex: Int, date: Date)
+}
+
 class DetailVC: UIViewController {
     
     // MARK: - Properties
     
+    weak var delegate: DetailVCDelegate!
+    
     var text: String!
+    
+    var selectedNoteIndex: Int!
 
     // MARK: - IBOutlets
     
@@ -23,6 +31,7 @@ class DetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textView.delegate = self
         textView.text = text
         textView.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
         textView.adjustsFontForContentSizeCategory = true

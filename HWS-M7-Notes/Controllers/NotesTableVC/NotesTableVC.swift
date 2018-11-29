@@ -92,6 +92,8 @@ class NotesTableVC: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { fatalError() }
         guard let detailVC = segue.destination as? DetailVC else { fatalError() }
+        detailVC.delegate = self
+        detailVC.selectedNoteIndex = indexPath.row
         detailVC.text = notes[indexPath.row].text
     }
     
