@@ -25,7 +25,15 @@ class NotesTableVC: UITableViewController {
         tableView.tableFooterView = UIView()
         
         setupBackground()
+        
+        // Setup NaigationController
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTableView))
+        
+        let compose = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(composeNewNote))
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        toolbarItems = [spacer, compose, spacer]
+        navigationController?.setToolbarHidden(false, animated: false)
+        navigationController?.toolbar.tintColor = Utilites.myBarTintColor
     }
 
     // MARK: - Table View Methods
@@ -80,5 +88,9 @@ class NotesTableVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @objc func composeNewNote() {
+        #warning("Add Functionality")
+    }
     
 }
