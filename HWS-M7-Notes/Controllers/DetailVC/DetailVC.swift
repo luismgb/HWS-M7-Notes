@@ -17,6 +17,7 @@ class DetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.text = text
+        textView.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
     }
 
 }
