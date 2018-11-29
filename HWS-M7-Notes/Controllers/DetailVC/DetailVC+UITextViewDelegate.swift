@@ -14,7 +14,7 @@ extension DetailVC: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         notes[selectedNoteIndex].text = textView.text
-        saveNotes()
+        Utilities.save(notes)
     }
     
 }

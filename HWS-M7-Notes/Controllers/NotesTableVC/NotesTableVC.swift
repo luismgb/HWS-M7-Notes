@@ -19,7 +19,7 @@ class NotesTableVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        populateNotesArrayWithSavedNotes()
+        notes = Utilities.savedNotes()
         
         title = "Notes"
         
@@ -38,8 +38,7 @@ class NotesTableVC: UITableViewController {
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         toolbarItems = [spacer, compose, spacer]
         navigationController?.setToolbarHidden(false, animated: false)
-        navigationController?.toolbar.tintColor = Utilites.myBarTintColor
-        
+        navigationController?.toolbar.tintColor = Utilities.myBarTintColor
         
         #warning("Delete below this")
         notes.append(Note(text: "first"))
@@ -57,7 +56,7 @@ class NotesTableVC: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        populateNotesArrayWithSavedNotes()
+        notes = Utilities.savedNotes()
         tableView.reloadData()
     }
 
@@ -87,7 +86,7 @@ class NotesTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             notes.remove(at: indexPath.row)
-            saveNotes()
+            Utilities.save(notes)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }

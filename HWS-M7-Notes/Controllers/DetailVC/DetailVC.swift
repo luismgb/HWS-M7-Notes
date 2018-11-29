@@ -25,7 +25,7 @@ class DetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        populateNotesArrayWithSavedNotes()
+        notes = Utilities.savedNotes()
         
         textView.delegate = self
         textView.text = notes[selectedNoteIndex].text
@@ -50,7 +50,7 @@ class DetailVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.setToolbarHidden(false, animated: true)
         
-        saveNotes()
+        Utilities.save(notes)
         
         super.viewWillDisappear(animated)
     }
