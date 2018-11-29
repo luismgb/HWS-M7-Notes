@@ -23,6 +23,19 @@ extension NotesTableVC {
             } catch {
                 fatalError("Unable to load saved notes.")
             }
+        } else {
+            notes = [Note]()
+        }
+    }
+    
+    /// Saves the notes array into the user defaults.
+    func saveNotes() {
+        let jsonEncoder = JSONEncoder()
+        if let savedData = try? jsonEncoder.encode(notes) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "notes")
+        } else {
+            fatalError("Failed to save notes into user defaults.")
         }
     }
     

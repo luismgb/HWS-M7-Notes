@@ -12,13 +12,15 @@ class NotesTableVC: UITableViewController {
 
     // MARK: - Properties
     
-    var notes = [Note]()
+    var notes: [Note]!
     
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        populateNotesArrayWithSavedNotes()
+        
         title = "Notes"
         
         // Removes empty extra cells at bottom of the tableView
@@ -37,10 +39,26 @@ class NotesTableVC: UITableViewController {
         toolbarItems = [spacer, compose, spacer]
         navigationController?.setToolbarHidden(false, animated: false)
         navigationController?.toolbar.tintColor = Utilites.myBarTintColor
+        
+        
+        #warning("Delete below this")
+        notes.append(Note(text: "first"))
+        notes.append(Note(text: "second"))
+        
+        let jsonEncoder = JSONEncoder()
+        if let savedData = try? jsonEncoder.encode(notes) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "notes")
+        } else {
+            fatalError("Failed to save notes into user defaults.")
+        }
+        #warning("delete above this")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         populateNotesArrayWithSavedNotes()
+        tableView.reloadData()
     }
 
     // MARK: - Table View Methods
@@ -69,7 +87,8 @@ class NotesTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             notes.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            saveNotes()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
@@ -96,9 +115,7 @@ class NotesTableVC: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { fatalError() }
         guard let detailVC = segue.destination as? DetailVC else { fatalError() }
-        detailVC.delegate = self
         detailVC.selectedNoteIndex = indexPath.row
-        detailVC.text = notes[indexPath.row].text
     }
     
     @objc func composeNewNote() {

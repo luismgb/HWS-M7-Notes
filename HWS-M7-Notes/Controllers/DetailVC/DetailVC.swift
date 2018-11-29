@@ -8,19 +8,11 @@
 
 import UIKit
 
-protocol DetailVCDelegate: class {
-    func userChangedTextInNoteTo(text: String, noteIndex: Int, date: Date)
-}
-
 class DetailVC: UIViewController {
     
     // MARK: - Properties
     
-    weak var delegate: DetailVCDelegate!
-    
     var notes = [Note]()
-    
-    var text: String!
     
     var selectedNoteIndex: Int!
 
@@ -33,8 +25,10 @@ class DetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        populateNotesArrayWithSavedNotes()
+        
         textView.delegate = self
-        textView.text = text
+        textView.text = notes[selectedNoteIndex].text
         textView.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
         textView.adjustsFontForContentSizeCategory = true
         
@@ -51,8 +45,6 @@ class DetailVC: UIViewController {
         
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.setToolbarHidden(true, animated: true)
-        
-        populateNotesArrayWithSavedNotes()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -13,8 +13,8 @@ extension DetailVC: UITextViewDelegate {
     // MARK: - Text View Delegate Methods
     
     func textViewDidChange(_ textView: UITextView) {
-        text = textView.text
-        delegate.userChangedTextInNoteTo(text: text, noteIndex: selectedNoteIndex, date: Date())
+        notes[selectedNoteIndex].text = textView.text
+        saveNotes()
     }
     
 }

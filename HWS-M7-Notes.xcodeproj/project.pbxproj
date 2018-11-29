@@ -17,7 +17,6 @@
 		21DA5CC921AE5552009C7B73 /* NotesTableVC+customDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CC821AE5552009C7B73 /* NotesTableVC+customDateFormatter.swift */; };
 		21DA5CCB21AE57F3009C7B73 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CCA21AE57F3009C7B73 /* DetailVC.swift */; };
 		21DA5CD021AF6A71009C7B73 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CCF21AF6A71009C7B73 /* Utilities.swift */; };
-		21DA5CD221AFA9BE009C7B73 /* NotesTableVC+DetailVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CD121AFA9BE009C7B73 /* NotesTableVC+DetailVCDelegate.swift */; };
 		21DA5CD421AFB2D2009C7B73 /* DetailVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CD321AFB2D2009C7B73 /* DetailVC+UITextViewDelegate.swift */; };
 		21EB257721B089F800B17CC8 /* DetailVC+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB257621B089F800B17CC8 /* DetailVC+Data.swift */; };
 		21EB257921B08ED200B17CC8 /* NotesTableVC+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB257821B08ED200B17CC8 /* NotesTableVC+Data.swift */; };
@@ -38,7 +37,6 @@
 		21DA5CC821AE5552009C7B73 /* NotesTableVC+customDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotesTableVC+customDateFormatter.swift"; sourceTree = "<group>"; };
 		21DA5CCA21AE57F3009C7B73 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		21DA5CCF21AF6A71009C7B73 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		21DA5CD121AFA9BE009C7B73 /* NotesTableVC+DetailVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotesTableVC+DetailVCDelegate.swift"; sourceTree = "<group>"; };
 		21DA5CD321AFB2D2009C7B73 /* DetailVC+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailVC+UITextViewDelegate.swift"; sourceTree = "<group>"; };
 		21EB257621B089F800B17CC8 /* DetailVC+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailVC+Data.swift"; sourceTree = "<group>"; };
 		21EB257821B08ED200B17CC8 /* NotesTableVC+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotesTableVC+Data.swift"; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				21EB257821B08ED200B17CC8 /* NotesTableVC+Data.swift */,
 				21DA5CC121AE5131009C7B73 /* NotesTableVC+Background.swift */,
 				21DA5CC821AE5552009C7B73 /* NotesTableVC+customDateFormatter.swift */,
-				21DA5CD121AFA9BE009C7B73 /* NotesTableVC+DetailVCDelegate.swift */,
 			);
 			path = NotesTableVC;
 			sourceTree = "<group>";
@@ -281,7 +278,6 @@
 				21DA5CA221AE1F83009C7B73 /* AppDelegate.swift in Sources */,
 				21DA5CC221AE5131009C7B73 /* NotesTableVC+Background.swift in Sources */,
 				21DA5CD421AFB2D2009C7B73 /* DetailVC+UITextViewDelegate.swift in Sources */,
-				21DA5CD221AFA9BE009C7B73 /* NotesTableVC+DetailVCDelegate.swift in Sources */,
 				21DA5CD021AF6A71009C7B73 /* Utilities.swift in Sources */,
 				21DA5CBA21AE41A6009C7B73 /* NotesTableVC.swift in Sources */,
 				21DA5CB521AE4140009C7B73 /* Note.swift in Sources */,
