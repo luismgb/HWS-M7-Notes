@@ -25,6 +25,13 @@ class DetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         notes = Utilities.savedNotes()
+        setupKeyboardNotificationObservers()
+        showActionBarButton()
+        view.insertSubview(Utilities.backgroundImageView(), at: 0)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         // If the user navigated to the DetailVC to create a new note, the
         // selectedNoteIndex will be equal to the index of the last item in
@@ -33,15 +40,7 @@ class DetailVC: UIViewController {
         if notes.endIndex == selectedNoteIndex {
             createEmptyNote()
         }
-        
         setupTextView()
-        setupKeyboardNotificationObservers()
-        showActionBarButton()
-        view.insertSubview(Utilities.backgroundImageView(), at: 0)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.setToolbarHidden(true, animated: true)
@@ -51,11 +50,11 @@ class DetailVC: UIViewController {
         navigationController?.setToolbarHidden(false, animated: true)
         
         // Remove note if it is empty to avoid saving empty notes.
-        if notes[selectedNoteIndex].text == "" {
+        if textView.text.isEmpty {
             notes.remove(at: selectedNoteIndex)
+            Utilities.save(notes)
         }
         
-        Utilities.save(notes)
         super.viewWillDisappear(animated)
     }
     
