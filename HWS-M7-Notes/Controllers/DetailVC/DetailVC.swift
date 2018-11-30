@@ -119,9 +119,14 @@ class DetailVC: UIViewController {
     // Sets up the observers for the keyboard lifecyle notifications.
     func setupKeyboardNotificationObservers() {
         let notificationCenter = NotificationCenter.default
+        
+        // Used for adjusting the textView so the text doesn't get hidden behind
+        // the keyboard.
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil) // swiftlint:disable:this line_length
         
+        // Used to show/hide the Done bar button that the user can use to hide
+        // the keyboard.
         notificationCenter.addObserver(self, selector: #selector(showDoneBarButton), name: UIResponder.keyboardWillShowNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(hideDoneBarButton), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
