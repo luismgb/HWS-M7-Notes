@@ -13,7 +13,6 @@
 		21DA5CAC21AE1F85009C7B73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21DA5CAA21AE1F85009C7B73 /* LaunchScreen.storyboard */; };
 		21DA5CB521AE4140009C7B73 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CB421AE4140009C7B73 /* Note.swift */; };
 		21DA5CBA21AE41A6009C7B73 /* NotesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CB921AE41A6009C7B73 /* NotesTableVC.swift */; };
-		21DA5CC221AE5131009C7B73 /* NotesTableVC+Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CC121AE5131009C7B73 /* NotesTableVC+Background.swift */; };
 		21DA5CC921AE5552009C7B73 /* NotesTableVC+customDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CC821AE5552009C7B73 /* NotesTableVC+customDateFormatter.swift */; };
 		21DA5CCB21AE57F3009C7B73 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CCA21AE57F3009C7B73 /* DetailVC.swift */; };
 		21DA5CD021AF6A71009C7B73 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5CCF21AF6A71009C7B73 /* Utilities.swift */; };
@@ -31,7 +30,6 @@
 		21DA5CAD21AE1F85009C7B73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21DA5CB421AE4140009C7B73 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		21DA5CB921AE41A6009C7B73 /* NotesTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableVC.swift; sourceTree = "<group>"; };
-		21DA5CC121AE5131009C7B73 /* NotesTableVC+Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotesTableVC+Background.swift"; sourceTree = "<group>"; };
 		21DA5CC821AE5552009C7B73 /* NotesTableVC+customDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotesTableVC+customDateFormatter.swift"; sourceTree = "<group>"; };
 		21DA5CCA21AE57F3009C7B73 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		21DA5CCF21AF6A71009C7B73 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				21DA5CB921AE41A6009C7B73 /* NotesTableVC.swift */,
-				21DA5CC121AE5131009C7B73 /* NotesTableVC+Background.swift */,
 				21DA5CC821AE5552009C7B73 /* NotesTableVC+customDateFormatter.swift */,
 			);
 			path = NotesTableVC;
@@ -270,7 +267,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				21DA5CA221AE1F83009C7B73 /* AppDelegate.swift in Sources */,
-				21DA5CC221AE5131009C7B73 /* NotesTableVC+Background.swift in Sources */,
 				21DA5CD421AFB2D2009C7B73 /* DetailVC+UITextViewDelegate.swift in Sources */,
 				21DA5CD021AF6A71009C7B73 /* Utilities.swift in Sources */,
 				21DA5CBA21AE41A6009C7B73 /* NotesTableVC.swift in Sources */,

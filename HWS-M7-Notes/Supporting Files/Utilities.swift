@@ -10,10 +10,17 @@ import UIKit
 
 class Utilities {
     
-    /// MARK: - Project Assets
+    // MARK: - Project Assets
     
     /// Dark yellow UIColor used to tint BarButtonItems.
     static let myBarTintColor = UIColor(red: 222.0/255.0, green: 176.0/255.0, blue: 0, alpha: 1)
+    
+    static func backgroundImageView() -> UIImageView {
+        let backgroundImage = UIImage(named: "paperBackground")
+        let backgroundImageView = UIImageView(image: backgroundImage)
+        backgroundImageView.contentMode = .scaleAspectFill
+        return backgroundImageView
+    }
     
     // MARK: - Data Manipulation Methods
     
