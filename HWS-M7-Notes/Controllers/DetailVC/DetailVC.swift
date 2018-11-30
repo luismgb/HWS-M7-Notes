@@ -24,7 +24,6 @@ class DetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         notes = Utilities.savedNotes()
         
         // If the user navigated to the DetailVC to create a new note, the
@@ -57,12 +56,12 @@ class DetailVC: UIViewController {
         }
         
         Utilities.save(notes)
-        
         super.viewWillDisappear(animated)
     }
     
     // MARK: - Keyboard Handling Methods
     
+    /// Adjusts the textView so that the text in it isn't hidden by the keyboard.
     @objc func adjustForKeyboard(notification: Notification) {
         let userInfo = notification.userInfo!
         
@@ -87,11 +86,13 @@ class DetailVC: UIViewController {
     
     // MARK: - Done Button Methods
     
+    /// Shows the Done bar button that is used to hide the keyboard.
     @objc func showDoneBarButton() {
         let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(hideKeyboard))
         navigationItem.setRightBarButton(doneBarButton, animated: true)
     }
     
+    /// Hides the Done bar button that shows up when the keyboard pops up.
     @objc func hideDoneBarButton() {
         navigationItem.setRightBarButton(nil, animated: true)
     }

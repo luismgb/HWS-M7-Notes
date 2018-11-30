@@ -18,25 +18,10 @@ class NotesTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         notes = Utilities.savedNotes()
-        
-        title = "Notes"
-        
-        // Removes empty extra cells at bottom of the tableView
-        tableView.tableFooterView = UIView()
-        tableView.backgroundView = Utilities.backgroundImageView()
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 44.0
-        
-        // Setup NaigationController
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTableView))
-        
-        let compose = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(composeNewNote))
-        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        toolbarItems = [spacer, compose, spacer]
-        navigationController?.setToolbarHidden(false, animated: false)
-        navigationController?.toolbar.tintColor = Utilities.myBarTintColor
+        setupTableViewProperties()
+        setupNavigationBarProperties()
+        setupToolbar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,8 +43,7 @@ class NotesTableVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
         cell.textLabel?.text = notes[indexPath.row].text
         
-        let dateFormatter = customDateFormatter()
-        
+        let dateFormatter = Utilities.customDateFormatter()        
         let noteDate = notes[indexPath.row].dateLastModified
         let formattedDate = dateFormatter.string(from: noteDate)
         cell.detailTextLabel?.text = formattedDate
@@ -111,12 +95,39 @@ class NotesTableVC: UITableViewController {
             // selectedNoteIndex in the DetailVC.
             noteIndex = notes.endIndex
         }
+        
         guard let detailVC = segue.destination as? DetailVC else { fatalError() }
         detailVC.selectedNoteIndex = noteIndex
     }
     
+    // MARK: - Helper Methods
+    
     @objc func composeNewNote() {
         performSegue(withIdentifier: "goToDetailVC", sender: self)
+    }
+    
+    // MARK: - Screen Setup Methods
+    
+    func setupTableViewProperties() {
+        // Removes empty extra cells at bottom of the tableView
+        tableView.tableFooterView = UIView()
+        tableView.backgroundView = Utilities.backgroundImageView()
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 44.0
+    }
+    
+    func setupNavigationBarProperties() {
+        // Setup NaigationController
+        title = "Notes"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTableView))
+    }
+    
+    func setupToolbar() {
+        let compose = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(composeNewNote))
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        toolbarItems = [spacer, compose, spacer]
+        navigationController?.setToolbarHidden(false, animated: false)
+        navigationController?.toolbar.tintColor = Utilities.myBarTintColor
     }
     
 }

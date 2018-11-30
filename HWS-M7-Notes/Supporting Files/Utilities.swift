@@ -15,11 +15,23 @@ class Utilities {
     /// Dark yellow UIColor used to tint BarButtonItems.
     static let myBarTintColor = UIColor(red: 222.0/255.0, green: 176.0/255.0, blue: 0, alpha: 1)
     
+    // MARK: - Helper Methods
+    
     static func backgroundImageView() -> UIImageView {
         let backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
         backgroundImageView.image = UIImage(named: "paperBackground")
         backgroundImageView.contentMode = .scaleAspectFill
         return backgroundImageView
+    }
+    
+    /// Returns a DateFormatter that dispays for example, November 27th, 2019 as
+    /// 11/27/19.
+    static func customDateFormatter() -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
+        return dateFormatter
     }
     
     // MARK: - Data Manipulation Methods

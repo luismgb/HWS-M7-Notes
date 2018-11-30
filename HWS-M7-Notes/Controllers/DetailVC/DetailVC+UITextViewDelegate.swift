@@ -12,6 +12,7 @@ extension DetailVC: UITextViewDelegate {
     
     // MARK: - Text View Delegate Methods
     
+    /// Saves the notes array everytime the text of a note is modified.
     func textViewDidChange(_ textView: UITextView) {
         notes[selectedNoteIndex].text = textView.text
         Utilities.save(notes)
