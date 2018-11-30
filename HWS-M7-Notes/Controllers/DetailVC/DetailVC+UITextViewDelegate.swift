@@ -15,6 +15,7 @@ extension DetailVC: UITextViewDelegate {
     /// Saves the notes array everytime the text of a note is modified.
     func textViewDidChange(_ textView: UITextView) {
         notes[selectedNoteIndex].text = textView.text
+        notes[selectedNoteIndex].dateLastModified = Date()
         Utilities.save(notes)
     }
     
