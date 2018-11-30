@@ -36,7 +36,7 @@ class DetailVC: UIViewController {
         
         setupTextView()
         setupKeyboardNotificationObservers()
-        
+        showActionBarButton()
         view.insertSubview(Utilities.backgroundImageView(), at: 0)
     }
 
@@ -86,15 +86,18 @@ class DetailVC: UIViewController {
     
     // MARK: - Done Button Methods
     
-    /// Shows the Done bar button that is used to hide the keyboard.
+    /// Shows the Done bar button that is used to hide the keyboard. It replaces
+    /// the action bar button.
     @objc func showDoneBarButton() {
         let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(hideKeyboard))
         navigationItem.setRightBarButton(doneBarButton, animated: true)
     }
     
-    /// Hides the Done bar button that shows up when the keyboard pops up.
-    @objc func hideDoneBarButton() {
-        navigationItem.setRightBarButton(nil, animated: true)
+    /// Shows the Action bar button that is used to share the note. It replaces
+    /// the Done bar button.
+    @objc func showActionBarButton() {
+        let actionBarButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareNote))
+        navigationItem.setRightBarButton(actionBarButton, animated: true)
     }
     
     // MARK: - Helper Methods
@@ -127,7 +130,11 @@ class DetailVC: UIViewController {
         // Used to show/hide the Done bar button that the user can use to hide
         // the keyboard.
         notificationCenter.addObserver(self, selector: #selector(showDoneBarButton), name: UIResponder.keyboardWillShowNotification, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(hideDoneBarButton), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(showActionBarButton), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func shareNote() {
+        #warning("Add Functionality")
     }
     
 }
