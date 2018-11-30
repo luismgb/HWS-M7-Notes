@@ -37,6 +37,8 @@ class DetailVC: UIViewController {
         
         setupTextView()
         setupKeyboardNotificationObservers()
+        
+        view.insertSubview(Utilities.backgroundImageView(), at: 0)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -109,11 +111,7 @@ class DetailVC: UIViewController {
         textView.delegate = self
         textView.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
         textView.adjustsFontForContentSizeCategory = true
-        
-        let backgroundImageView = Utilities.backgroundImageView()
         textView.backgroundColor = UIColor.clear
-        textView.addSubview(backgroundImageView)
-        textView.sendSubviewToBack(backgroundImageView)
     }
     
     // Sets up the observers for the keyboard lifecyle notifications.

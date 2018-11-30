@@ -16,8 +16,8 @@ class Utilities {
     static let myBarTintColor = UIColor(red: 222.0/255.0, green: 176.0/255.0, blue: 0, alpha: 1)
     
     static func backgroundImageView() -> UIImageView {
-        let backgroundImage = UIImage(named: "paperBackground")
-        let backgroundImageView = UIImageView(image: backgroundImage)
+        let backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImageView.image = UIImage(named: "paperBackground")
         backgroundImageView.contentMode = .scaleAspectFill
         return backgroundImageView
     }
