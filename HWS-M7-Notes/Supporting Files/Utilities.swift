@@ -21,6 +21,7 @@ class Utilities {
         let backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
         backgroundImageView.image = UIImage(named: "paperBackground")
         backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.clipsToBounds = true
         return backgroundImageView
     }
     
