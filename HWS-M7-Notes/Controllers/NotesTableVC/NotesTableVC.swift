@@ -39,20 +39,6 @@ class NotesTableVC: UITableViewController {
         toolbarItems = [spacer, compose, spacer]
         navigationController?.setToolbarHidden(false, animated: false)
         navigationController?.toolbar.tintColor = Utilities.myBarTintColor
-        
-        #warning("Delete below this")
-        notes.append(Note(text: "first"))
-        notes.append(Note(text: "second"))
-        
-        let jsonEncoder = JSONEncoder()
-        if let savedData = try? jsonEncoder.encode(notes) {
-            let defaults = UserDefaults.standard
-            defaults.set(savedData, forKey: "notes")
-        } else {
-            fatalError("Failed to save notes into user defaults.")
-        }
-        #warning("delete above this")
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
