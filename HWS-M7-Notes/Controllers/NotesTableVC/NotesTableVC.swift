@@ -58,6 +58,10 @@ class NotesTableVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         notes = Utilities.savedNotes()
         tableView.reloadData()
+        // When user creates a new note while the editing the tableView,
+        // this ensures that when the user comes back to NotesTableVC, the
+        // tableView is not in editing mode anymore.
+        tableView.isEditing = false
     }
 
     // MARK: - Table View Methods
@@ -112,13 +116,23 @@ class NotesTableVC: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = tableView.indexPathForSelectedRow else { fatalError() }
+        let noteIndex: Int
+        if let indexPath = tableView.indexPathForSelectedRow {
+            // If there is a cell selected in the tableView, we use the row
+            // indexPath to access the right note.
+            noteIndex = indexPath.row
+        } else {
+            // If there is no cell selected in the tableView, like when we
+            // create a new note, we use the notes array endIndex for the
+            // selectedNoteIndex in the DetailVC.
+            noteIndex = notes.endIndex
+        }
         guard let detailVC = segue.destination as? DetailVC else { fatalError() }
-        detailVC.selectedNoteIndex = indexPath.row
+        detailVC.selectedNoteIndex = noteIndex
     }
     
     @objc func composeNewNote() {
-        #warning("Add Functionality")
+        performSegue(withIdentifier: "goToDetailVC", sender: self)
     }
     
 }

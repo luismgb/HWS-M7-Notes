@@ -27,17 +27,16 @@ class DetailVC: UIViewController {
         
         notes = Utilities.savedNotes()
         
-        textView.delegate = self
-        textView.text = notes[selectedNoteIndex].text
-        textView.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
-        textView.adjustsFontForContentSizeCategory = true
+        // If the user navigated to the DetailVC to create a new note, the
+        // selectedNoteIndex will be equal to the index of the last item in
+        // notes plus one (notes.endIndex). The selectedNoteIndex should be set
+        // when performing the segue to a DetailVC.
+        if notes.endIndex == selectedNoteIndex {
+            createEmptyNote()
+        }
         
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil) // swiftlint:disable:this line_length
-        
-        notificationCenter.addObserver(self, selector: #selector(showDoneBarButton), name: UIResponder.keyboardWillShowNotification, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(hideDoneBarButton), name: UIResponder.keyboardWillHideNotification, object: nil)
+        setupTextView()
+        setupKeyboardNotificationObservers()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -88,6 +87,33 @@ class DetailVC: UIViewController {
     
     @objc func hideDoneBarButton() {
         navigationItem.setRightBarButton(nil, animated: true)
+    }
+    
+    // MARK: - Helper Methods
+    
+    /// Instantiates a new empty note and saves it.
+    func createEmptyNote() {
+        let newNote = Note(text: "")
+        notes.append(newNote)
+        Utilities.save(notes)
+    }
+    
+    /// Sets up the textView properties.
+    func setupTextView() {
+        textView.text = notes[selectedNoteIndex].text
+        textView.delegate = self
+        textView.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
+        textView.adjustsFontForContentSizeCategory = true
+    }
+    
+    // Sets up the observers for the keyboard lifecyle notifications.
+    func setupKeyboardNotificationObservers() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil) // swiftlint:disable:this line_length
+        
+        notificationCenter.addObserver(self, selector: #selector(showDoneBarButton), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(hideDoneBarButton), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
 }
