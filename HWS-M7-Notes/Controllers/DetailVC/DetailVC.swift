@@ -49,6 +49,11 @@ class DetailVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.setToolbarHidden(false, animated: true)
         
+        // Remove note if it is empty to avoid saving empty notes.
+        if notes[selectedNoteIndex].text == "" {
+            notes.remove(at: selectedNoteIndex)
+        }
+        
         Utilities.save(notes)
         
         super.viewWillDisappear(animated)
