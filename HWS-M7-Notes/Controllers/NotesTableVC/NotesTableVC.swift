@@ -103,7 +103,6 @@ class NotesTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToDetailVC", sender: self)
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     @objc func editTableView() {
