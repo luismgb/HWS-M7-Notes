@@ -118,7 +118,7 @@ class DetailVC: UIViewController {
         textView.backgroundColor = UIColor.clear
     }
     
-    // Sets up the observers for the keyboard lifecyle notifications.
+    /// Sets up the observers for the keyboard lifecyle notifications.
     func setupKeyboardNotificationObservers() {
         let notificationCenter = NotificationCenter.default
         
@@ -133,8 +133,11 @@ class DetailVC: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(showActionBarButton), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    /// Shares the text in the note using an activity view controller.
     @objc func shareNote() {
-        #warning("Add Functionality")
+        let text = notes[selectedNoteIndex].text
+        let activityVC = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        present(activityVC, animated: true)
     }
     
 }
